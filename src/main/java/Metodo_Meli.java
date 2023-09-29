@@ -54,7 +54,7 @@ public class Metodo_Meli {
                 System.out.println("Ingrese los nuevos permisos que se otorgan: ");
                 String permissions = scanner.nextLine();
 
-                Editar(usernamerecord, passwordrecord, permissions);
+                SecMercl_Editar(usernamerecord, passwordrecord, permissions);
 
             }else if (newusu.equals("ME2JK")) {
 
@@ -64,7 +64,7 @@ public class Metodo_Meli {
                 System.out.println("Actualice o edite sus permisos: ");
                 String permissions = scanner.nextLine();
 
-                Editar(newusu, pass, permissions);
+                SecMercl_Editar(newusu, pass, permissions);
             }else {
                 System.out.println("tu usuario: " + newusu + " no tiene el permiso de editar");
             }
@@ -80,11 +80,11 @@ public class Metodo_Meli {
             String newusu = Select(email, pass);
             if (newusu.equals("Secops21_MercL")){
 
-                Selectconsul();
+                SecMercl_Selectconsul();
 
             }else if (newusu.equals("MerCSL")){
 
-                Select_One(newusu);
+                SecMercl_Select_One(newusu);
             } else {
                 System.out.println("tu usuario: " + newusu + " no tiene el permiso de realizar consultas");
             }
@@ -103,7 +103,7 @@ public class Metodo_Meli {
                 System.out.println("Ingrese el username que deseas eliminar: ");
                 email = scanner.nextLine();
 
-                Eliminar(email);
+                SecMercl_Eliminar(email);
             }
             else {
                 System.out.println("tu usuario: " + newusu + " no tiene el permiso de eliminar");
@@ -111,7 +111,7 @@ public class Metodo_Meli {
         }
 }
 
-    public static void Select_One(String newusu) throws ClassNotFoundException, SQLException {
+    public static void SecMercl_Select_One(String newusu) throws ClassNotFoundException, SQLException {
 
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/usuarios-meli";
@@ -148,7 +148,7 @@ public class Metodo_Meli {
 
     }
 
-    private static void Eliminar(String email) throws ClassNotFoundException, SQLException {
+    private static void SecMercl_Eliminar(String email) throws ClassNotFoundException, SQLException {
 
         String driver2 = "com.mysql.cj.jdbc.Driver";
         String url2 = "jdbc:mysql://localhost:3306/usuarios-meli";
@@ -167,7 +167,7 @@ public class Metodo_Meli {
 
     }
 
-    private static void Selectconsul() throws ClassNotFoundException, SQLException {
+    private static void SecMercl_Selectconsul() throws ClassNotFoundException, SQLException {
 
         String driver2 = "com.mysql.cj.jdbc.Driver";
         String url2 = "jdbc:mysql://localhost:3306/usuarios-meli";
@@ -190,7 +190,7 @@ public class Metodo_Meli {
         }
     }
 
-    private static void Editar(String usernamerecord, String passwordrecord, String permissions) throws ClassNotFoundException, SQLException {
+    private static void SecMercl_Editar(String usernamerecord, String passwordrecord, String permissions) throws ClassNotFoundException, SQLException {
 
         String driver2 = "com.mysql.cj.jdbc.Driver";
         String url2 = "jdbc:mysql://localhost:3306/usuarios-meli";
