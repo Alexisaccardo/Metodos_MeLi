@@ -19,7 +19,7 @@ public class Metodo_Meli {
             String pass = scanner.nextLine();
 
             String newusu = Select(email, pass);
-            if (newusu.equals("Secops21_MercL") || newusu.equals("ME2JK")) {
+            if (newusu.equalsIgnoreCase("Secops21_MercL") || newusu.equalsIgnoreCase("ME2JK")) {
 
                 System.out.println("Ingrese el username a registrar: ");
                 String usernamerecord = scanner.nextLine();
@@ -30,7 +30,7 @@ public class Metodo_Meli {
                 System.out.println("Ingrese los permisos que se otorgan: ");
                 String permissions = scanner.nextLine();
 
-                SecMercl_registro(usernamerecord, passwordrecord, permissions);
+                SecMercl_register(usernamerecord, passwordrecord, permissions);
             } else {
                 System.out.println("tu usuario: " + newusu + " no tiene el permiso de registrar");
             }
@@ -43,7 +43,7 @@ public class Metodo_Meli {
             String pass = scanner.nextLine();
 
             String newusu = Select(email, pass);
-            if (newusu.equals("Secops21_MercL")) {
+            if (newusu.equalsIgnoreCase("Secops21_MercL")) {
 
                 System.out.println("Ingrese el username a editar: ");
                 String usernamerecord = scanner.nextLine();
@@ -54,9 +54,9 @@ public class Metodo_Meli {
                 System.out.println("Ingrese los nuevos permisos que se otorgan: ");
                 String permissions = scanner.nextLine();
 
-                SecMercl_Editar(usernamerecord, passwordrecord, permissions);
+                SecMercl_Edit(usernamerecord, passwordrecord, permissions);
 
-            }else if (newusu.equals("ME2JK")) {
+            }else if (newusu.equalsIgnoreCase("ME2JK")) {
 
                 System.out.println("Actualice o edite su password: ");
                 pass = scanner.nextLine();
@@ -64,7 +64,7 @@ public class Metodo_Meli {
                 System.out.println("Actualice o edite sus permisos: ");
                 String permissions = scanner.nextLine();
 
-                SecMercl_Editar(newusu, pass, permissions);
+                SecMercl_Edit(newusu, pass, permissions);
             }else {
                 System.out.println("tu usuario: " + newusu + " no tiene el permiso de editar");
             }
@@ -78,11 +78,11 @@ public class Metodo_Meli {
             String pass = scanner.nextLine();
 
             String newusu = Select(email, pass);
-            if (newusu.equals("Secops21_MercL")){
+            if (newusu.equalsIgnoreCase("Secops21_MercL")){
 
                 SecMercl_Selectconsul();
 
-            }else if (newusu.equals("MerCSL")){
+            }else if (newusu.equalsIgnoreCase("MerCSL")){
 
                 SecMercl_Select_One(newusu);
             } else {
@@ -98,12 +98,12 @@ public class Metodo_Meli {
             String pass = scanner.nextLine();
 
             String newusu = Select(email, pass);
-            if (newusu.equals("Secops21_MercL") || newusu.equals("MEJS75")) {
+            if (newusu.equalsIgnoreCase("Secops21_MercL") || newusu.equalsIgnoreCase("MEJS75")) {
 
                 System.out.println("Ingrese el username que deseas eliminar: ");
                 email = scanner.nextLine();
 
-                SecMercl_Eliminar(email);
+                SecMercl_Delete(email);
             }
             else {
                 System.out.println("tu usuario: " + newusu + " no tiene el permiso de eliminar");
@@ -148,7 +148,7 @@ public class Metodo_Meli {
 
     }
 
-    private static void SecMercl_Eliminar(String email) throws ClassNotFoundException, SQLException {
+    private static void SecMercl_Delete(String email) throws ClassNotFoundException, SQLException {
 
         String driver2 = "com.mysql.cj.jdbc.Driver";
         String url2 = "jdbc:mysql://localhost:3306/usuarios-meli";
@@ -190,7 +190,7 @@ public class Metodo_Meli {
         }
     }
 
-    private static void SecMercl_Editar(String usernamerecord, String passwordrecord, String permissions) throws ClassNotFoundException, SQLException {
+    private static void SecMercl_Edit(String usernamerecord, String passwordrecord, String permissions) throws ClassNotFoundException, SQLException {
 
         String driver2 = "com.mysql.cj.jdbc.Driver";
         String url2 = "jdbc:mysql://localhost:3306/usuarios-meli";
@@ -219,7 +219,7 @@ public class Metodo_Meli {
         connection2.close();
     }
 
-    private static void SecMercl_registro (String usernamerecord, String passwordrecord, String permissions) {
+    private static void SecMercl_register (String usernamerecord, String passwordrecord, String permissions) {
 
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/usuarios-meli";
